@@ -12,7 +12,7 @@ if Facter.value('osfamily') == 'RedHat'
   end
 elsif Facter.value('osfamily') == 'Suse'
   lsb = Hash.new('')
-  data = File.read('/etc/SuSE-release')
+  data = File.read('/etc/SuSE-release').split("\n")
   lsb[:distdescription] = data[0].chomp
 
   lsb[:distid] = 'SUSE LINUX'
